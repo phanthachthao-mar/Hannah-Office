@@ -256,6 +256,7 @@ body:not(.night) .cb.ag{background:#fff;color:#2b2550;border:1px solid rgba(120,
 .offs button.on i{box-shadow:0 0 0 2px rgba(255,255,255,.8)}}
 @media(min-width:701px){.offs{overflow-x:auto;scrollbar-width:none;justify-content:safe center}.offs::-webkit-scrollbar{display:none}.offs button{flex:none}}
 @media(min-width:701px) and (max-width:1500px){.offs button{padding:0 8px!important;font-size:11.5px!important;gap:5px!important}.offs{padding:5px 6px}}
+@media(min-width:701px){.offs.gon button:not(.on){font-size:0!important;gap:0!important;padding:0 9px!important}.offs.gon button:not(.on) i,.offs.gon button[data-id=""]:not(.on)::before{width:13px;height:13px}}
 @media(min-width:701px) and (max-width:1100px){.offs button{padding:0 6px!important;font-size:11px!important}}
 .cin .ok{width:40px!important;height:40px!important;min-width:40px!important;flex:none!important;padding:0!important;border-radius:50%!important;display:grid!important;place-items:center;line-height:1!important;font-size:15px!important;aspect-ratio:1/1}.cin .att{flex:none;width:36px;height:36px;display:grid;place-items:center}
 #bgN{background:linear-gradient(rgba(14,8,48,.22),rgba(14,8,48,.22)),url(bg-dem.jpg) center 30%/cover no-repeat,#1a1442!important}
@@ -802,7 +803,9 @@ function focusView(){var a=(cw&&chh)?cw/chh:1.4,p=a<.9,w=(2*RW)/(.73*a),hh=(2*RW
 function fitCam(){cam.touched=false;var v=ovView();focus=null;cam.az=v.az;cam.el=v.el;cam.tx=CX;cam.tz=CZ;cam.dist=v.d;cam.goal=null;markOffs()}
 function goOverview(){var v=ovView();focus=null;cam.goal={x:CX,z:CZ,d:v.d,e:v.el,az:v.az};markOffs()}
 function focusOffice(id){var d=deptOf(id),v=focusView();focus=id;cam.goal={x:d.wx,z:d.wz,d:v.d,e:v.el,az:v.az+d.th};markOffs()}
-function markOffs(){var b=document.querySelectorAll('#offs button');for(var i=0;i<b.length;i++)b[i].classList.toggle('on',(b[i].dataset.id||'')===(focus||''))}
+function fitOffs(){var o=document.getElementById('offs');if(!o||!o.parentElement)return;o.classList.remove('gon');if(window.innerWidth<=700)return;var b=o.children,w=16+4*Math.max(0,b.length-1);for(var i=0;i<b.length;i++)w+=b[i].offsetWidth;if(w>o.parentElement.clientWidth-24)o.classList.add('gon')}
+window.addEventListener('resize',fitOffs);setTimeout(fitOffs,300);setTimeout(fitOffs,1500);
+function markOffs(){var b=document.querySelectorAll('#offs button');for(var i=0;i<b.length;i++)b[i].classList.toggle('on',(b[i].dataset.id||'')===(focus||''));fitOffs()}
 function resize(){var s=document.getElementById('stage');dpr=Math.min(window.devicePixelRatio||1,2);cw=s.clientWidth;chh=s.clientHeight;var rs=LITE==='nhe'?.75:(cw<900&&(window.devicePixelRatio||1)>1.5)?Math.min(window.devicePixelRatio,2):1;cv.width=Math.round(cw*rs);cv.height=Math.round(chh*rs);if(gl)gl.viewport(0,0,cv.width,cv.height);if(typeof cam!=='undefined'&&cam&&cw&&!focus&&!cam.touched&&typeof fitCam==='function')fitCam()}
 function project(x,y,z){var m=VP,w=m[3]*x+m[7]*y+m[11]*z+m[15];if(w<=.01)return null;return [(m[0]*x+m[4]*y+m[8]*z+m[12])/w*.5*cw+cw/2,(1-(m[1]*x+m[5]*y+m[9]*z+m[13])/w)*.5*chh,w]}
 var tags={},chips=[],scr={},BUB={};
@@ -955,7 +958,7 @@ function itemAgent(i){var f=(ghField(i.body,'Agent')||'').toLowerCase();if(!f&&/
 function isLenh(i){return (i.labels||[]).some(function(l){return l.name==='lenh'})}
 function lenhChay(i){var L=(i.labels||[]).map(function(l){return l.name});return i.state==='open'&&L.indexOf('lenh')>=0&&L.indexOf('duyet')>=0&&L.indexOf('da-xu-ly')<0&&L.indexOf('xong-luot')<0&&L.indexOf('loi-lenh')<0}
 function agentRole(a){return a.id==='quan-ly-viec'?'qlcv':a.id==='telegram'?'tele':a.id==='trinh-sat'?'ts':a.name==='Trưởng nhóm'?'lead':/^Ads/.test(a.name)?'ads':/^Nghiên cứu sản phẩm/.test(a.name)?'sp':/^(Content|Viết bài)/.test(a.name)?'vb':/^Chiến lược nội dung/.test(a.name)?'cl':/^Biên tập/.test(a.name)?'bt':/^Ý tưởng hình ảnh/.test(a.name)?'ah':/^Nghiên cứu khách hàng/.test(a.name)?'kh':/^Xu hướng/.test(a.name)?'xh':/^Săn sự kiện/.test(a.name)?'sk':/^TikTok/.test(a.name)?'tt':''}
-var APP_V='20261024-0110r';
+var APP_V='20261024-0125r';
 function chkVer(first){try{fetch('index.html?_='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/APP_V='([^']+)'/);if(!m||m[1]===APP_V)return;
  if(first&&performance.now()<6000&&!sessionStorage.getItem('vpd_rl_'+m[1])){sessionStorage.setItem('vpd_rl_'+m[1],'1');location.reload();return}
  if(document.getElementById('newver'))return;var b=document.createElement('button');b.id='newver';b.textContent='Có bản mới, bấm để tải lại';b.style.cssText='position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:60;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:inherit;font-size:13px;box-shadow:var(--sh);cursor:pointer';b.onclick=function(){location.reload()};document.body.appendChild(b)}).catch(function(){})}catch(e){}}
