@@ -253,6 +253,14 @@ body.night{background:linear-gradient(rgba(14,8,48,.5),rgba(14,8,48,.5)),url(bg-
 .chead{display:none}
 @media(max-width:900px){.chat.cfull{position:fixed;left:0;right:0;top:var(--vvt,0px);height:var(--vvh,100dvh)!important;max-height:none;z-index:200;background:#150f3a;border-radius:0;padding:calc(env(safe-area-inset-top,0px) + 8px) max(12px,env(safe-area-inset-left,0px)) 8px;box-sizing:border-box}.chat.cfull .chead{display:flex;align-items:center;justify-content:space-between;font-weight:800;font-size:16px;color:#f2edff}.chat.cfull .chead .cbtn{font-size:13px;padding:5px 12px}html.cfon,html.cfon body{overflow:hidden;overscroll-behavior:none}html.cfon body>*:not(main),html.cfon .stage,html.cfon .tabs{visibility:hidden!important}}
 .cwrap{position:relative;flex:1;min-height:0;display:flex;flex-direction:column}.cwrap .cmsgs{flex:1;min-height:0}.cdown{position:absolute;right:12px;bottom:10px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(190,170,255,.35);background:rgba(40,30,100,.78);color:#f2edff;font-size:20px;line-height:1;display:none;place-items:center;cursor:pointer;opacity:.82;padding:0}.cdown.on{display:grid}.cdown .cdb{position:absolute;top:-6px;right:-4px;min-width:18px;height:18px;border-radius:9px;background:#ff7aa8;color:#fff;font-size:11px;font-weight:700;line-height:18px;text-align:center;padding:0 4px}
+/* bong bóng dạng thạch: trong mờ, bóng, mềm, nảy khi hiện */
+body .bb{background:linear-gradient(160deg,rgba(255,255,255,.86),rgba(209,194,255,.58));border:1.5px solid rgba(255,255,255,.9);border-radius:20px;color:#2f2560;padding:5px 12px;backdrop-filter:blur(8px) saturate(1.5);-webkit-backdrop-filter:blur(8px) saturate(1.5);box-shadow:inset 0 2px 5px rgba(255,255,255,.95),inset 0 -6px 10px rgba(140,110,235,.38),0 7px 16px rgba(110,80,200,.35);animation:jelly .8s cubic-bezier(.3,1.5,.5,1) both}
+body .bb::before{content:"";position:absolute;top:3px;left:11px;width:36%;height:26%;border-radius:99px;background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(255,255,255,0));opacity:.8;pointer-events:none}
+body.night .bb{background:linear-gradient(160deg,rgba(150,122,255,.62),rgba(72,52,176,.6));border-color:rgba(205,192,255,.6);color:#f7f3ff;box-shadow:inset 0 2px 5px rgba(255,255,255,.4),inset 0 -7px 11px rgba(30,10,110,.5),0 7px 18px rgba(80,50,200,.5)}
+body .bb.rush{background:linear-gradient(160deg,rgba(255,210,203,.92),rgba(255,125,105,.62));border-color:rgba(255,255,255,.8);color:#7d1710;box-shadow:inset 0 2px 5px rgba(255,255,255,.9),inset 0 -6px 10px rgba(220,70,55,.4),0 7px 16px rgba(220,70,55,.35)}
+body.night .bb.rush{background:linear-gradient(160deg,rgba(255,118,96,.6),rgba(156,34,50,.62));border-color:rgba(255,200,190,.6);color:#ffe6e1}
+@keyframes jelly{0%{opacity:0;scale:.55 .35}30%{opacity:1;scale:1.14 .86}52%{scale:.93 1.08}74%{scale:1.04 .98}100%{opacity:1;scale:1 1}}
+@media(prefers-reduced-motion:reduce){body .bb{animation:none}}
 </style>
 </head>
 <body>
@@ -931,7 +939,7 @@ function itemAgent(i){var f=(ghField(i.body,'Agent')||'').toLowerCase();if(!f&&/
 function isLenh(i){return (i.labels||[]).some(function(l){return l.name==='lenh'})}
 function lenhChay(i){var L=(i.labels||[]).map(function(l){return l.name});return i.state==='open'&&L.indexOf('lenh')>=0&&L.indexOf('duyet')>=0&&L.indexOf('da-xu-ly')<0&&L.indexOf('xong-luot')<0&&L.indexOf('loi-lenh')<0}
 function agentRole(a){return a.id==='quan-ly-viec'?'qlcv':a.id==='telegram'?'tele':a.id==='trinh-sat'?'ts':a.name==='Trưởng nhóm'?'lead':/^Ads/.test(a.name)?'ads':/^Nghiên cứu sản phẩm/.test(a.name)?'sp':/^(Content|Viết bài)/.test(a.name)?'vb':/^Chiến lược nội dung/.test(a.name)?'cl':/^Biên tập/.test(a.name)?'bt':/^Ý tưởng hình ảnh/.test(a.name)?'ah':/^Nghiên cứu khách hàng/.test(a.name)?'kh':/^Xu hướng/.test(a.name)?'xh':/^Săn sự kiện/.test(a.name)?'sk':''}
-var APP_V='20261023-2030';
+var APP_V='20261023-2000j';
 function chkVer(first){try{fetch('index.html?_='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/APP_V='([^']+)'/);if(!m||m[1]===APP_V)return;
  if(first&&performance.now()<6000&&!sessionStorage.getItem('vpd_rl_'+m[1])){sessionStorage.setItem('vpd_rl_'+m[1],'1');location.reload();return}
  if(document.getElementById('newver'))return;var b=document.createElement('button');b.id='newver';b.textContent='Có bản mới, bấm để tải lại';b.style.cssText='position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:60;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:inherit;font-size:13px;box-shadow:var(--sh);cursor:pointer';b.onclick=function(){location.reload()};document.body.appendChild(b)}).catch(function(){})}catch(e){}}
