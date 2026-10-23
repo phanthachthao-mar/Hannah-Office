@@ -479,6 +479,16 @@
    "status": "ready",
    "updated": "2026-10-23T03:30:00Z",
    "short": "Kế hoạch marketing"
+  },
+  {
+   "id": "bq-13",
+   "dept": "bq",
+   "order": 13,
+   "name": "Săn sự kiện",
+   "role": "Tìm sự kiện, hội thảo ngành mắt ở TP.HCM, gửi lịch và link đăng ký, ưu tiên miễn phí",
+   "status": "ready",
+   "updated": "2026-10-23T10:20:00Z",
+   "short": "Sự kiện TP.HCM, ưu tiên miễn phí"
   }
  ],
  "activity": [],
