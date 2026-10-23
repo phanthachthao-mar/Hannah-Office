@@ -929,7 +929,7 @@ function itemAgent(i){var f=(ghField(i.body,'Agent')||'').toLowerCase();if(/trin
 function isLenh(i){return (i.labels||[]).some(function(l){return l.name==='lenh'})}
 function lenhChay(i){var L=(i.labels||[]).map(function(l){return l.name});return i.state==='open'&&L.indexOf('lenh')>=0&&L.indexOf('duyet')>=0&&L.indexOf('da-xu-ly')<0&&L.indexOf('xong-luot')<0&&L.indexOf('loi-lenh')<0}
 function agentRole(a){return a.id==='quan-ly-viec'?'qlcv':a.id==='telegram'?'tele':a.id==='trinh-sat'?'ts':a.name==='Trưởng nhóm'?'lead':/^Ads/.test(a.name)?'ads':/^Nghiên cứu sản phẩm/.test(a.name)?'sp':/^(Content|Viết bài)/.test(a.name)?'vb':/^Chiến lược nội dung/.test(a.name)?'cl':/^Biên tập/.test(a.name)?'bt':/^Ý tưởng hình ảnh/.test(a.name)?'ah':/^Nghiên cứu khách hàng/.test(a.name)?'kh':/^Xu hướng/.test(a.name)?'xh':/^Săn sự kiện/.test(a.name)?'sk':''}
-var APP_V='20261023-1850';
+var APP_V='20261023-1930';
 function chkVer(first){try{fetch('index.html?_='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/APP_V='([^']+)'/);if(!m||m[1]===APP_V)return;
  if(first&&performance.now()<6000&&!sessionStorage.getItem('vpd_rl_'+m[1])){sessionStorage.setItem('vpd_rl_'+m[1],'1');location.reload();return}
  if(document.getElementById('newver'))return;var b=document.createElement('button');b.id='newver';b.textContent='Có bản mới, bấm để tải lại';b.style.cssText='position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:60;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:inherit;font-size:13px;box-shadow:var(--sh);cursor:pointer';b.onclick=function(){location.reload()};document.body.appendChild(b)}).catch(function(){})}catch(e){}}
@@ -1004,7 +1004,8 @@ function chatAgentFor(i,dept){var r=itemAgent(i),a=state.agents.filter(function(
 function chatApplyTh(th){var tm=(th||'').match(/^Trò chuyện · ([^·]+) · (.+)$/);if(!tm)return null;var du={'§bq§':'bq','§mka§':'mka','§el§':'el','Chung':'ops'}[tm[1].trim()];if(!du)return null;CHAT.dept=du;CHAT.agent=tm[2].trim();if(chatTitle()!==CHAT.key){CHAT.num=0;CHAT.msgs=[];CHAT.pending=false;return chatSync().then(function(){return ''})}return Promise.resolve('')}
 function nrm(x){return String(x||'').toLowerCase().replace(/đ/g,'d').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\s+/g,' ').trim()}
 // ---------- hệ thống tự chuyển câu hỏi tới đúng agent (không nhắc tên thì dò theo chủ đề; không rõ thì Trưởng nhóm đơn vị nhận) ----------
-var ROUTES=[[/\b(he thong|lenh|cho duyet|dang cho|hang doi|lich chay|workflow|actions|token|telegram|viec nao|viec gi|tien do viec|hom nay co viec)\b/,'ops','Quản lý công việc'],
+var ROUTES=[[/\b(nhac|remind|nhac lai|dat nhac|hen gio)\b/,'ops','Quản lý công việc'],
+ [/\b(he thong|lenh|cho duyet|dang cho|hang doi|lich chay|workflow|actions|token|telegram|viec nao|viec gi|tien do viec|hom nay co viec)\b/,'ops','Quản lý công việc'],
  [/\b(ads|quang cao|chi tieu|ngan sach|chien dich|nhom qc|cpm|cpc|ctr|roas|inbox ads)\b/,'unit',/^Ads/],
  [/\b(bien tap|soat bai|duyet bai|sua bai)\b/,'unit',/^Biên tập/],
  [/\b(bai viet|caption|viet bai|content)\b/,'unit',/^Content/],
