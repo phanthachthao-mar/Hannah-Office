@@ -105,10 +105,10 @@
    "dept": "bq",
    "order": 11,
    "name": "Nghiên cứu sản phẩm",
-   "role": "Tìm và lưu tài liệu chính hãng của sản phẩm đơn vị, trả lời khi Hannah hỏi, gửi lại tệp khi cần",
+   "role": "Bách khoa sản phẩm: giữ tài liệu, trả lời về hãng, thành phần, khác biệt giữa các loại",
    "status": "ready",
    "updated": "2026-10-22T04:05:00Z",
-   "short": "Tài liệu sản phẩm chính hãng"
+   "short": "Bách khoa sản phẩm"
   },
   {
    "id": "mka-1",
