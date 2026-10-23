@@ -45,10 +45,10 @@
    "dept": "bq",
    "order": 5,
    "name": "Content",
-   "role": "Soạn nháp bài/content đơn vị từ nguồn đã xác minh (kho tài liệu sản phẩm, web chính hãng), ghi nguồn",
+   "role": "Soạn nháp bài/content từ nguồn đã xác minh; tạo ảnh nháp và giữ kho ảnh của đơn vị",
    "status": "ready",
    "updated": "2026-10-22T05:15:00Z",
-   "short": "Content từ nguồn chính hãng"
+   "short": "Bài viết, tạo ảnh, kho ảnh"
   },
   {
    "id": "bq-6",
@@ -65,7 +65,7 @@
    "dept": "bq",
    "order": 7,
    "name": "Ý tưởng hình ảnh",
-   "role": "Brief ảnh và video",
+   "role": "Brief ảnh và video (ảnh thật do Content tạo và lưu)",
    "status": "ready",
    "updated": "2026-10-22T07:50:00Z",
    "short": "Brief ảnh và video"
@@ -155,10 +155,10 @@
    "dept": "mka",
    "order": 5,
    "name": "Content",
-   "role": "Bài đăng và quảng cáo từ nguồn đã xác minh",
+   "role": "Soạn nháp bài/content từ nguồn đã xác minh; tạo ảnh nháp và giữ kho ảnh của đơn vị",
    "status": "ready",
    "updated": "2026-10-22T07:50:00Z",
-   "short": "Bài đăng và quảng cáo"
+   "short": "Bài viết, tạo ảnh, kho ảnh"
   },
   {
    "id": "mka-6",
@@ -175,7 +175,7 @@
    "dept": "mka",
    "order": 7,
    "name": "Ý tưởng hình ảnh",
-   "role": "Brief ảnh và video",
+   "role": "Brief ảnh và video (ảnh thật do Content tạo và lưu)",
    "status": "ready",
    "updated": "2026-10-22T07:50:00Z",
    "short": "Brief ảnh và video"
@@ -255,10 +255,10 @@
    "dept": "el",
    "order": 5,
    "name": "Content",
-   "role": "Bài đăng và quảng cáo từ nguồn đã xác minh",
+   "role": "Soạn nháp bài/content từ nguồn đã xác minh; tạo ảnh nháp và giữ kho ảnh của đơn vị",
    "status": "ready",
    "updated": "2026-10-22T07:50:00Z",
-   "short": "Bài đăng và quảng cáo"
+   "short": "Bài viết, tạo ảnh, kho ảnh"
   },
   {
    "id": "el-6",
@@ -275,7 +275,7 @@
    "dept": "el",
    "order": 7,
    "name": "Ý tưởng hình ảnh",
-   "role": "Brief ảnh và video",
+   "role": "Brief ảnh và video (ảnh thật do Content tạo và lưu)",
    "status": "ready",
    "updated": "2026-10-22T07:50:00Z",
    "short": "Brief ảnh và video"
