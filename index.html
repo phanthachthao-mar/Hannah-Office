@@ -928,7 +928,7 @@ function itemAgent(i){var f=(ghField(i.body,'Agent')||'').toLowerCase();if(/trin
 function isLenh(i){return (i.labels||[]).some(function(l){return l.name==='lenh'})}
 function lenhChay(i){var L=(i.labels||[]).map(function(l){return l.name});return i.state==='open'&&L.indexOf('lenh')>=0&&L.indexOf('duyet')>=0&&L.indexOf('da-xu-ly')<0&&L.indexOf('xong-luot')<0&&L.indexOf('loi-lenh')<0}
 function agentRole(a){return a.id==='quan-ly-viec'?'qlcv':a.id==='telegram'?'tele':a.id==='trinh-sat'?'ts':a.name==='Trưởng nhóm'?'lead':/^Ads/.test(a.name)?'ads':/^Nghiên cứu sản phẩm/.test(a.name)?'sp':/^(Content|Viết bài)/.test(a.name)?'vb':/^Chiến lược nội dung/.test(a.name)?'cl':/^Biên tập/.test(a.name)?'bt':/^Ý tưởng hình ảnh/.test(a.name)?'ah':/^Nghiên cứu khách hàng/.test(a.name)?'kh':/^Xu hướng/.test(a.name)?'xh':''}
-var APP_V='20261023-1745';
+var APP_V='20261023-1810';
 function chkVer(first){try{fetch('index.html?_='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/APP_V='([^']+)'/);if(!m||m[1]===APP_V)return;
  if(first&&!sessionStorage.getItem('vpd_rl_'+m[1])){sessionStorage.setItem('vpd_rl_'+m[1],'1');location.reload();return}
  if(document.getElementById('newver'))return;var b=document.createElement('button');b.id='newver';b.textContent='Có bản mới, bấm để tải lại';b.style.cssText='position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:60;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:inherit;font-size:13px;box-shadow:var(--sh);cursor:pointer';b.onclick=function(){location.reload()};document.body.appendChild(b)}).catch(function(){})}catch(e){}}
@@ -1212,11 +1212,12 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden&&!DB
  var tok='';try{tok=localStorage.getItem('vpd_gh')||''}catch(_){}
  function run(C){var src=document.getElementById('app-src').textContent.replace(/§(\w+)§/g,function(m,k){return C[k]!=null?(k.indexOf('kw')===0?JSON.stringify(C[k]):String(C[k])):m});(0,eval)(src)}
  function pick(){try{var c=JSON.parse(localStorage.getItem('vpd_brand')||'null');if(c&&c.bq)return c}catch(_){}return null}
+ function note(m){try{var d=document.createElement('div');d.style.cssText='position:fixed;left:8px;bottom:8px;z-index:999;background:#7a1530;color:#fff;font:600 12px sans-serif;padding:5px 9px;border-radius:8px;max-width:90%';d.textContent='Chưa tải được tên đơn vị ('+m+'). Tải lại trang hoặc nhập lại khóa GitHub.';document.body.appendChild(d);setTimeout(function(){d.remove()},15000)}catch(_){}}
  if(!tok)return run(DEF);
  var cached=pick();
- var get=fetch('https://api.github.com/repos/phanthachthao-mar/van-phong-dem-viec/issues?labels=thuong-hieu&state=closed&per_page=1',{headers:{'Accept':'application/vnd.github+json','Authorization':'Bearer '+tok}}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(a){var c=JSON.parse(a[0].body);try{localStorage.setItem('vpd_brand',JSON.stringify(c))}catch(_){}return c});
+ var get=fetch('https://api.github.com/repos/phanthachthao-mar/van-phong-dem-viec/issues?labels=thuong-hieu&state=closed&per_page=1&_='+Date.now(),{cache:'no-store',headers:{'Accept':'application/vnd.github+json','Authorization':'Bearer '+tok,'X-GitHub-Api-Version':'2022-11-28'}}).then(function(r){if(!r.ok)throw new Error('GitHub '+r.status);return r.json()}).then(function(a){if(!a||!a[0])throw new Error('không thấy cấu hình');var b=a[0].body||'',c=JSON.parse(b.slice(b.indexOf('{'),b.lastIndexOf('}')+1));try{localStorage.setItem('vpd_brand',JSON.stringify(c))}catch(_){}return c});
  if(cached){run(cached);get.catch(function(){});return}
- get.then(run).catch(function(){run(DEF)})})();
+ var C=DEF,err='';get.then(function(c){C=c},function(e){err=String(e&&e.message||e);C=DEF}).then(function(){run(C);if(err)note(err)})})();
 </script>
 
 </body>
