@@ -1,0 +1,486 @@
+{
+ "agents": [
+  {
+   "id": "bq-1",
+   "dept": "bq",
+   "order": 1,
+   "name": "Trưởng nhóm",
+   "role": "Mục tiêu, KPI, gom kết quả báo Vận hành",
+   "status": "ready",
+   "updated": "2026-10-22T01:35:00Z",
+   "short": "Gom KPI, báo Vận hành"
+  },
+  {
+   "id": "bq-2",
+   "dept": "bq",
+   "order": 2,
+   "name": "Nghiên cứu khách hàng",
+   "role": "Chân dung khách hàng, kế hoạch B2B2C",
+   "status": "ready",
+   "updated": "2026-10-22T08:20:00Z",
+   "short": "Chân dung khách hàng"
+  },
+  {
+   "id": "bq-3",
+   "dept": "bq",
+   "order": 3,
+   "name": "Xu hướng & Thị trường",
+   "role": "Cập nhật xu hướng và tình hình thị trường, có link nguồn",
+   "status": "ready",
+   "updated": "2026-10-22T08:20:00Z",
+   "short": "Xu hướng có link nguồn"
+  },
+  {
+   "id": "bq-4",
+   "dept": "bq",
+   "order": 4,
+   "name": "Chiến lược nội dung",
+   "role": "Lịch nội dung theo tuần",
+   "status": "ready",
+   "updated": "2026-10-22T07:50:00Z",
+   "short": "Lịch nội dung theo tuần"
+  },
+  {
+   "id": "bq-5",
+   "dept": "bq",
+   "order": 5,
+   "name": "Content",
+   "role": "Soạn nháp bài/content đơn vị từ nguồn đã xác minh (kho tài liệu sản phẩm, web chính hãng), ghi nguồn",
+   "status": "ready",
+   "updated": "2026-10-22T05:15:00Z",
+   "short": "Content từ nguồn chính hãng"
+  },
+  {
+   "id": "bq-6",
+   "dept": "bq",
+   "order": 6,
+   "name": "Biên tập",
+   "role": "Kiểm tra nguồn, giọng thương hiệu, lỗi chính tả",
+   "status": "ready",
+   "updated": "2026-10-22T07:50:00Z",
+   "short": "Soát nguồn, giọng, chính tả"
+  },
+  {
+   "id": "bq-7",
+   "dept": "bq",
+   "order": 7,
+   "name": "Ý tưởng hình ảnh",
+   "role": "Brief ảnh và video",
+   "status": "ready",
+   "updated": "2026-10-22T07:50:00Z",
+   "short": "Brief ảnh và video"
+  },
+  {
+   "id": "bq-8",
+   "dept": "bq",
+   "order": 8,
+   "name": "Quản lý Social",
+   "role": "Đề xuất lịch đăng, tóm tắt bình luận",
+   "status": "ready",
+   "updated": "2026-10-21T11:00:00Z",
+   "short": "Lịch đăng và tóm tắt bình luận"
+  },
+  {
+   "id": "bao-cao-ads-bq",
+   "dept": "bq",
+   "order": 9,
+   "name": "Ads Meta",
+   "role": "Số liệu Meta Ads và bản tin ngày 7:58",
+   "status": "ready",
+   "updated": "2026-10-21T11:00:00Z",
+   "short": "Số liệu Meta, bản tin 8:00"
+  },
+  {
+   "id": "bq-10",
+   "dept": "bq",
+   "order": 10,
+   "name": "Phân tích",
+   "role": "Đề xuất tối ưu khi đủ dữ liệu",
+   "status": "ready",
+   "updated": "2026-10-23T03:30:00Z",
+   "short": "Đề xuất tối ưu có bằng chứng"
+  },
+  {
+   "id": "bq-11",
+   "dept": "bq",
+   "order": 11,
+   "name": "Nghiên cứu sản phẩm",
+   "role": "Tìm và lưu tài liệu chính hãng của sản phẩm đơn vị, trả lời khi Hannah hỏi, gửi lại tệp khi cần",
+   "status": "ready",
+   "updated": "2026-10-22T04:05:00Z",
+   "short": "Tài liệu sản phẩm chính hãng"
+  },
+  {
+   "id": "mka-1",
+   "dept": "mka",
+   "order": 1,
+   "name": "Trưởng nhóm",
+   "role": "Mục tiêu, KPI, gom kết quả báo Vận hành",
+   "status": "ready",
+   "updated": "2026-10-22T00:52:00Z",
+   "short": "Gom KPI, báo Vận hành"
+  },
+  {
+   "id": "mka-2",
+   "dept": "mka",
+   "order": 2,
+   "name": "Nghiên cứu khách hàng",
+   "role": "Chân dung khách hàng, kế hoạch B2B2C",
+   "status": "ready",
+   "updated": "2026-10-22T08:20:00Z",
+   "short": "Chân dung khách hàng"
+  },
+  {
+   "id": "mka-3",
+   "dept": "mka",
+   "order": 3,
+   "name": "Xu hướng & Thị trường",
+   "role": "Cập nhật xu hướng và tình hình thị trường, có link nguồn",
+   "status": "ready",
+   "updated": "2026-10-22T08:20:00Z",
+   "short": "Xu hướng có link nguồn"
+  },
+  {
+   "id": "mka-4",
+   "dept": "mka",
+   "order": 4,
+   "name": "Chiến lược nội dung",
+   "role": "Lịch nội dung theo tuần",
+   "status": "ready",
+   "updated": "2026-10-22T07:50:00Z",
+   "short": "Lịch nội dung theo tuần"
+  },
+  {
+   "id": "mka-5",
+   "dept": "mka",
+   "order": 5,
+   "name": "Content",
+   "role": "Bài đăng và quảng cáo từ nguồn đã xác minh",
+   "status": "ready",
+   "updated": "2026-10-22T07:50:00Z",
+   "short": "Bài đăng và quảng cáo"
+  },
+  {
+   "id": "mka-6",
+   "dept": "mka",
+   "order": 6,
+   "name": "Biên tập",
+   "role": "Kiểm tra nguồn, giọng thương hiệu, lỗi chính tả",
+   "status": "ready",
+   "updated": "2026-10-22T07:50:00Z",
+   "short": "Soát nguồn, giọng, chính tả"
+  },
+  {
+   "id": "mka-7",
+   "dept": "mka",
+   "order": 7,
+   "name": "Ý tưởng hình ảnh",
+   "role": "Brief ảnh và video",
+   "status": "ready",
+   "updated": "2026-10-22T07:50:00Z",
+   "short": "Brief ảnh và video"
+  },
+  {
+   "id": "mka-8",
+   "dept": "mka",
+   "order": 8,
+   "name": "Quản lý Social",
+   "role": "Đề xuất lịch đăng, tóm tắt bình luận",
+   "status": "ready",
+   "updated": "2026-10-21T11:00:00Z",
+   "short": "Lịch đăng và tóm tắt bình luận"
+  },
+  {
+   "id": "mka-9",
+   "dept": "mka",
+   "order": 9,
+   "name": "Ads Meta",
+   "role": "Số liệu Meta Ads, bản tin ngày 7:58, đánh giá tuần sáng thứ 2",
+   "status": "ready",
+   "updated": "2026-10-21T11:00:00Z",
+   "short": "Số liệu Meta, bản tin 8:00"
+  },
+  {
+   "id": "mka-10",
+   "dept": "mka",
+   "order": 10,
+   "name": "Phân tích",
+   "role": "Đề xuất tối ưu khi đủ dữ liệu",
+   "status": "ready",
+   "updated": "2026-10-23T03:30:00Z",
+   "short": "Đề xuất tối ưu có bằng chứng"
+  },
+  {
+   "id": "el-1",
+   "dept": "el",
+   "order": 1,
+   "name": "Trưởng nhóm",
+   "role": "Mục tiêu, KPI, gom kết quả báo Vận hành",
+   "status": "ready",
+   "updated": "2026-10-22T01:35:00Z",
+   "short": "Gom KPI, báo Vận hành"
+  },
+  {
+   "id": "el-2",
+   "dept": "el",
+   "order": 2,
+   "name": "Nghiên cứu khách hàng",
+   "role": "Chân dung khách hàng, kế hoạch B2B2C",
+   "status": "ready",
+   "updated": "2026-10-22T08:20:00Z",
+   "short": "Chân dung khách hàng"
+  },
+  {
+   "id": "el-3",
+   "dept": "el",
+   "order": 3,
+   "name": "Xu hướng & Thị trường",
+   "role": "Cập nhật xu hướng và tình hình thị trường, có link nguồn",
+   "status": "ready",
+   "updated": "2026-10-22T08:20:00Z",
+   "short": "Xu hướng có link nguồn"
+  },
+  {
+   "id": "el-4",
+   "dept": "el",
+   "order": 4,
+   "name": "Chiến lược nội dung",
+   "role": "Lịch nội dung theo tuần",
+   "status": "ready",
+   "updated": "2026-10-22T07:50:00Z",
+   "short": "Lịch nội dung theo tuần"
+  },
+  {
+   "id": "el-5",
+   "dept": "el",
+   "order": 5,
+   "name": "Content",
+   "role": "Bài đăng và quảng cáo từ nguồn đã xác minh",
+   "status": "ready",
+   "updated": "2026-10-22T07:50:00Z",
+   "short": "Bài đăng và quảng cáo"
+  },
+  {
+   "id": "el-6",
+   "dept": "el",
+   "order": 6,
+   "name": "Biên tập",
+   "role": "Kiểm tra nguồn, giọng thương hiệu, lỗi chính tả",
+   "status": "ready",
+   "updated": "2026-10-22T07:50:00Z",
+   "short": "Soát nguồn, giọng, chính tả"
+  },
+  {
+   "id": "el-7",
+   "dept": "el",
+   "order": 7,
+   "name": "Ý tưởng hình ảnh",
+   "role": "Brief ảnh và video",
+   "status": "ready",
+   "updated": "2026-10-22T07:50:00Z",
+   "short": "Brief ảnh và video"
+  },
+  {
+   "id": "el-8",
+   "dept": "el",
+   "order": 8,
+   "name": "Quản lý Social",
+   "role": "Đề xuất lịch đăng, tóm tắt bình luận",
+   "status": "ready",
+   "updated": "2026-10-21T11:00:00Z",
+   "short": "Lịch đăng và tóm tắt bình luận"
+  },
+  {
+   "id": "el-9",
+   "dept": "el",
+   "order": 9,
+   "name": "Ads Meta",
+   "role": "Số liệu Meta Ads và bản tin 8:00",
+   "status": "ready",
+   "updated": "2026-10-23T03:30:00Z",
+   "short": "Số liệu Meta, bản tin 8:00"
+  },
+  {
+   "id": "el-10",
+   "dept": "el",
+   "order": 10,
+   "name": "Phân tích",
+   "role": "Đề xuất tối ưu khi đủ dữ liệu",
+   "status": "ready",
+   "updated": "2026-10-23T03:30:00Z",
+   "short": "Đề xuất tối ưu có bằng chứng"
+  },
+  {
+   "id": "ops-1",
+   "dept": "ops",
+   "order": 1,
+   "name": "Giám sát Content",
+   "role": "Quản lý nhóm nội dung 3 thương hiệu; tổng hợp content của 3 page, báo bạn",
+   "status": "ready",
+   "updated": "2026-10-21T11:00:00Z",
+   "short": "Tổng hợp content, 23:00 mỗi đêm"
+  },
+  {
+   "id": "ops-2",
+   "dept": "ops",
+   "order": 2,
+   "name": "Giám sát Ads",
+   "role": "Quản lý 3 agent Ads Meta; theo dõi, tìm nguyên nhân bất thường, so sánh 3 đơn vị",
+   "status": "ready",
+   "updated": "2026-10-21T11:00:00Z",
+   "short": "Quản lý 3 agent Ads Meta"
+  },
+  {
+   "id": "ops-3",
+   "dept": "ops",
+   "order": 3,
+   "name": "Giám sát Xu hướng",
+   "role": "Quản lý các vai Xu hướng & Thị trường; gom xu hướng của 3 team",
+   "status": "ready",
+   "updated": "2026-10-21T11:00:00Z",
+   "short": "Báo xu hướng mới mỗi đêm"
+  },
+  {
+   "id": "ops-4",
+   "dept": "ops",
+   "order": 4,
+   "name": "Cập nhật nền tảng",
+   "role": "Cập nhật nền tảng đang launch tại Việt Nam và thay đổi chính sách, thuật toán, công cụ quảng cáo, báo lúc 9:00",
+   "status": "ready",
+   "updated": "2026-10-21T11:00:00Z",
+   "short": "Nền tảng mới tại Việt Nam, 9:00"
+  },
+  {
+   "id": "trinh-sat",
+   "dept": "ops",
+   "order": 5,
+   "name": "Trinh sát đối thủ",
+   "role": "Theo dõi đối thủ, so sánh và đề xuất thay đổi",
+   "status": "ready",
+   "updated": "2026-10-22T12:55:00Z",
+   "short": "Theo dõi đối thủ, so sánh, đề xuất"
+  },
+  {
+   "id": "quan-ly-viec",
+   "dept": "ops",
+   "order": 6,
+   "name": "Quản lý công việc",
+   "role": "Nhận việc và lệnh từ tab Việc, nhắc việc 8:00 và 22:00, làm lệnh đã duyệt",
+   "status": "ready",
+   "updated": "2026-10-21T11:00:00Z",
+   "short": "Nhắc việc 8:00, 22:00"
+  },
+  {
+   "id": "ops-7",
+   "dept": "ops",
+   "order": 7,
+   "name": "Thư ký tổng hợp",
+   "role": "Gom việc của 3 Trưởng nhóm thành một bản tin mỗi ngày cho bạn",
+   "status": "ready",
+   "updated": "2026-10-23T02:00:00Z",
+   "short": "Bản tin 23:00 mỗi đêm"
+  },
+  {
+   "id": "sys-1",
+   "dept": "sys",
+   "order": 1,
+   "name": "Giám sát lịch chạy",
+   "role": "Kiểm tra bản tin 7:58 có chạy, Mac có thức dậy",
+   "status": "ready",
+   "updated": "2026-10-22T06:50:00Z",
+   "short": "Báo khi bản tin không chạy"
+  },
+  {
+   "id": "sys-2",
+   "dept": "sys",
+   "order": 2,
+   "name": "Giám sát token",
+   "role": "Báo trước khi token Meta và Telegram sắp hết hạn",
+   "status": "ready",
+   "updated": "2026-10-22T06:50:00Z",
+   "short": "Báo token sắp hết hạn"
+  },
+  {
+   "id": "sys-3",
+   "dept": "sys",
+   "order": 3,
+   "name": "Giám sát dữ liệu",
+   "role": "Phát hiện số liệu bất thường, thiếu ngày, lệch Ads Manager",
+   "status": "ready",
+   "updated": "2026-10-22T07:05:00Z",
+   "short": "Báo số liệu bất thường"
+  },
+  {
+   "id": "sys-4",
+   "dept": "sys",
+   "order": 4,
+   "name": "Theo dõi ads liên tục",
+   "role": "Theo dõi quảng cáo cả 3 thương hiệu trong ngày, báo ngay khi bất thường",
+   "status": "ready",
+   "updated": "2026-10-23T02:30:00Z",
+   "short": "Báo ads bất thường mỗi giờ"
+  },
+  {
+   "id": "telegram",
+   "dept": "sys",
+   "order": 4,
+   "name": "Cảnh báo & Telegram",
+   "role": "Gửi tin về điện thoại, cảnh báo sự cố",
+   "status": "ready",
+   "updated": "2026-10-21T11:00:00Z",
+   "short": "Gửi tin về điện thoại"
+  },
+  {
+   "id": "kai",
+   "dept": "sys",
+   "order": 5,
+   "name": "Kai",
+   "role": "Kỹ thuật: lập trình",
+   "status": "idle",
+   "updated": "2026-10-21T11:00:00Z",
+   "short": "Lập trình"
+  },
+  {
+   "id": "rex",
+   "dept": "sys",
+   "order": 6,
+   "name": "Rex",
+   "role": "Kỹ thuật: rà soát, một lần mỗi nhóm việc",
+   "status": "idle",
+   "updated": "2026-10-21T11:00:00Z",
+   "short": "Rà soát code"
+  },
+  {
+   "id": "bq-12",
+   "dept": "bq",
+   "order": 12,
+   "name": "Kế hoạch",
+   "role": "Lập kế hoạch marketing: mục tiêu, chiến dịch, lịch, gợi ý chia ngân sách",
+   "status": "ready",
+   "updated": "2026-10-23T03:30:00Z",
+   "short": "Kế hoạch marketing"
+  },
+  {
+   "id": "mka-11",
+   "dept": "mka",
+   "order": 11,
+   "name": "Kế hoạch",
+   "role": "Lập kế hoạch marketing: mục tiêu, chiến dịch, lịch, gợi ý chia ngân sách",
+   "status": "ready",
+   "updated": "2026-10-23T03:30:00Z",
+   "short": "Kế hoạch marketing"
+  },
+  {
+   "id": "el-11",
+   "dept": "el",
+   "order": 11,
+   "name": "Kế hoạch",
+   "role": "Lập kế hoạch marketing: mục tiêu, chiến dịch, lịch, gợi ý chia ngân sách",
+   "status": "ready",
+   "updated": "2026-10-23T03:30:00Z",
+   "short": "Kế hoạch marketing"
+  }
+ ],
+ "activity": [],
+ "tasks": []
+}
