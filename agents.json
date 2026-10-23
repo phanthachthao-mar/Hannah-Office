@@ -470,6 +470,16 @@
       "updated": "2026-10-23T03:30:00Z",
       "short": "Kế hoạch marketing"
     },
+{
+      "id": "mka-12",
+      "dept": "mka",
+      "order": 12,
+      "name": "Nghiên cứu sản phẩm",
+      "role": "Bách khoa sản phẩm của đơn vị: gọng, tròng, kính mát, hãng; mọi thông tin có nguồn xác thực",
+      "status": "ready",
+      "updated": "2026-10-23T03:30:00Z",
+      "short": "Bách khoa sản phẩm"
+    },
     {
       "id": "el-11",
       "dept": "el",
