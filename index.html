@@ -254,7 +254,9 @@ body:not(.night) .cb.ag{background:#fff;color:#2b2550;border:1px solid rgba(120,
 .offs button[data-id=""]::before{content:"";width:11px;height:11px;border-radius:50%;border:2px solid rgba(255,255,255,.85);box-sizing:border-box}
 .offs button.on{font-weight:800;color:#fff!important;background:linear-gradient(180deg,color-mix(in srgb,var(--c,#b79cff) 55%,#fff 10%),color-mix(in srgb,var(--c,#b79cff) 45%,#1a0f40))!important;box-shadow:0 0 14px color-mix(in srgb,var(--c,#b79cff) 70%,transparent),inset 0 1px 0 rgba(255,255,255,.4)!important;text-shadow:0 1px 2px rgba(0,0,0,.4)}
 .offs button.on i{box-shadow:0 0 0 2px rgba(255,255,255,.8)}}
-@media(min-width:701px) and (max-width:1000px){.offs button{padding:0 9px!important;font-size:11.5px!important}}
+@media(min-width:701px){.offs{overflow-x:auto;scrollbar-width:none;justify-content:safe center}.offs::-webkit-scrollbar{display:none}.offs button{flex:none}}
+@media(min-width:701px) and (max-width:1500px){.offs button{padding:0 8px!important;font-size:11.5px!important;gap:5px!important}.offs{padding:5px 6px}}
+@media(min-width:701px) and (max-width:1100px){.offs button{padding:0 6px!important;font-size:11px!important}}
 .cin .ok{width:40px!important;height:40px!important;min-width:40px!important;flex:none!important;padding:0!important;border-radius:50%!important;display:grid!important;place-items:center;line-height:1!important;font-size:15px!important;aspect-ratio:1/1}.cin .att{flex:none;width:36px;height:36px;display:grid;place-items:center}
 #bgN{background:linear-gradient(rgba(14,8,48,.22),rgba(14,8,48,.22)),url(bg-dem.jpg) center 30%/cover no-repeat,#1a1442!important}
 body.night{background:linear-gradient(rgba(14,8,48,.5),rgba(14,8,48,.5)),url(bg-dem.jpg) center 30%/cover no-repeat fixed,#160f33!important}
@@ -953,7 +955,7 @@ function itemAgent(i){var f=(ghField(i.body,'Agent')||'').toLowerCase();if(!f&&/
 function isLenh(i){return (i.labels||[]).some(function(l){return l.name==='lenh'})}
 function lenhChay(i){var L=(i.labels||[]).map(function(l){return l.name});return i.state==='open'&&L.indexOf('lenh')>=0&&L.indexOf('duyet')>=0&&L.indexOf('da-xu-ly')<0&&L.indexOf('xong-luot')<0&&L.indexOf('loi-lenh')<0}
 function agentRole(a){return a.id==='quan-ly-viec'?'qlcv':a.id==='telegram'?'tele':a.id==='trinh-sat'?'ts':a.name==='Trưởng nhóm'?'lead':/^Ads/.test(a.name)?'ads':/^Nghiên cứu sản phẩm/.test(a.name)?'sp':/^(Content|Viết bài)/.test(a.name)?'vb':/^Chiến lược nội dung/.test(a.name)?'cl':/^Biên tập/.test(a.name)?'bt':/^Ý tưởng hình ảnh/.test(a.name)?'ah':/^Nghiên cứu khách hàng/.test(a.name)?'kh':/^Xu hướng/.test(a.name)?'xh':/^Săn sự kiện/.test(a.name)?'sk':/^TikTok/.test(a.name)?'tt':''}
-var APP_V='20261023-2300r';
+var APP_V='20261024-0110r';
 function chkVer(first){try{fetch('index.html?_='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/APP_V='([^']+)'/);if(!m||m[1]===APP_V)return;
  if(first&&performance.now()<6000&&!sessionStorage.getItem('vpd_rl_'+m[1])){sessionStorage.setItem('vpd_rl_'+m[1],'1');location.reload();return}
  if(document.getElementById('newver'))return;var b=document.createElement('button');b.id='newver';b.textContent='Có bản mới, bấm để tải lại';b.style.cssText='position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:60;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:inherit;font-size:13px;box-shadow:var(--sh);cursor:pointer';b.onclick=function(){location.reload()};document.body.appendChild(b)}).catch(function(){})}catch(e){}}
