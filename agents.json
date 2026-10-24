@@ -505,10 +505,10 @@
       "dept": "th",
       "order": 1,
       "name": "Trưởng nhóm Thiên Hà",
-      "role": "Xếp lịch video, theo dõi kênh, báo kết quả cho bạn",
-      "status": "planned",
-      "updated": "2026-10-23T15:10:00Z",
-      "short": "Chưa xây"
+      "role": "Điều phối video ngắn của 3 đơn vị: xếp lịch làm và đăng, báo video chờ duyệt; chưa nối TikTok nên số liệu kênh do bạn gửi",
+      "status": "ready",
+      "updated": "2026-10-24T04:40:00Z",
+      "short": "Xếp lịch video"
     },
     {
       "id": "th-2",
@@ -526,10 +526,10 @@
       "dept": "th",
       "order": 3,
       "name": "Kiểm tra nội dung",
-      "role": "Soát lời quảng cáo, nhãn AI, thông tin sản phẩm trước khi bạn duyệt",
-      "status": "planned",
-      "updated": "2026-10-23T15:10:00Z",
-      "short": "Chưa xây"
+      "role": "Soát lời quảng cáo, nhãn AI, thông tin sản phẩm đối chiếu tài liệu gốc trong kho trước khi bạn duyệt",
+      "status": "ready",
+      "updated": "2026-10-24T04:40:00Z",
+      "short": "Soát trước khi duyệt"
     },
     {
       "id": "th-4",
