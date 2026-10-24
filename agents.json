@@ -381,6 +381,16 @@
       "short": "Bản tin 23:00 mỗi đêm"
     },
     {
+      "id": "ops-8",
+      "dept": "ops",
+      "order": 8,
+      "name": "Cố vấn thông thái",
+      "role": "Cố vấn cấp cao: trả lời thẳng thắn câu hỏi chiến lược, vận hành, soát lại việc các agent",
+      "status": "ready",
+      "updated": "2026-10-24T03:00:00Z",
+      "short": "Mở tin bằng chữ \"cố vấn\""
+    },
+    {
       "id": "sys-1",
       "dept": "sys",
       "order": 1,
