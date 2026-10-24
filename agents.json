@@ -514,7 +514,7 @@
       "id": "th-2",
       "dept": "th",
       "order": 2,
-      "name": "TikTok {mka}",
+      "name": "TikTok Asia New Vision",
       "role": "Từ ảnh bạn gửi: ý tưởng, kịch bản, giọng đọc AI, dựng video ngắn, bạn duyệt rồi mới đăng",
       "status": "ready",
       "updated": "2026-10-23T15:10:00Z",
@@ -545,21 +545,21 @@
       "id": "th-5",
       "dept": "th",
       "order": 5,
-      "name": "TikTok {bq}",
-      "role": "Clip chuyên môn ngắn từ nội dung đã có",
-      "status": "planned",
-      "updated": "2026-10-23T15:10:00Z",
-      "short": "Chưa xây"
+      "name": "TikTok Bách Quang",
+      "role": "Từ ảnh bạn gửi: ý tưởng, kịch bản, giọng đọc AI, dựng video ngắn cho Bách Quang, bạn duyệt rồi mới đăng",
+      "status": "ready",
+      "updated": "2026-10-24T04:30:00Z",
+      "short": "Ảnh thành video ngắn"
     },
     {
       "id": "th-6",
       "dept": "th",
       "order": 6,
-      "name": "TikTok {el}",
-      "role": "Video cho người dùng kính áp tròng, làm sau khi hệ thống hoàn chỉnh",
-      "status": "planned",
-      "updated": "2026-10-23T15:10:00Z",
-      "short": "Chưa xây"
+      "name": "TikTok Ember Lens",
+      "role": "Từ ảnh bạn gửi: ý tưởng, kịch bản, giọng đọc AI, dựng video ngắn cho Ember Lens, bạn duyệt rồi mới đăng",
+      "status": "ready",
+      "updated": "2026-10-24T04:30:00Z",
+      "short": "Ảnh thành video ngắn"
     }
   ],
   "activity": [],
