@@ -730,6 +730,8 @@ var WORLD={id:'world',fr:I4,th:0,wx:0,wz:0,cx:0,cz:0,c:'#ffffff'};
 var VOPS_ARR=['Em chạy qua nộp thiết kế cho Giám sát, nhanh nhanh!','Gấp gấp, nộp hồ sơ thiết kế đây ạ!','Trễ rồi trễ rồi, em nộp cho Giám sát đây!'];
 var VOPS_WAIT=['Em nộp hồ sơ rồi, đứng chờ ngoài cửa Quỹ Đạo ạ.','Giám sát ơi, xem giúp em sớm với, em chờ nè!','Cửa đóng, em đứng chờ ngoài này nha.','Chờ duyệt xong là em về làm tiếp liền.','Hồ sơ gấp lắm, mong Giám sát xem sớm ạ!'];
 var VOPS_BACK=['Xong rồi, em về văn phòng đây!','Giám sát nhận rồi, em về nha!'];
+var VCH_V=['Chào bạn, mình sang chơi tí nè!','Bên bạn đang bận gì thế?','Mình ghé thăm, có gì vui không?','Văn phòng bạn đẹp quá!'];
+var VCH_H=['Ồ chào bạn, ghé chơi nha!','Mình đang làm dở, bạn cứ tự nhiên!','Lâu lắm mới gặp bạn bên này!','Cảm ơn bạn đã ghé, uống nước không?'];
 var VSOC_ARR=['Rảnh nên qua thăm văn phòng bên này nè!','Giờ nghỉ, em ghé chào cả nhà tí!'];
 var VSOC_WAIT=['Ghé cửa chào thôi, giờ làm việc em không vào được.','Bên này nhìn vui ghê, tí em về nha.'];
 var VSOC_BACK=['Hết giờ nghỉ, em về làm đây!','Chào nha, em về văn phòng mình!'];
@@ -749,6 +751,8 @@ function visTick(A){var v=A.vis,now=Date.now();
  if(v.stage==='enter'){var t3=v.tgt;A.dep=t3;A.x=t3.ox+.9;A.z=t3.cz;A.out=[];A.pose='stand';A.yaw=PI/2;A.tyaw=PI/2;v.t1=now;v.nx=0;v.stage='inside';lifeSay(A,lifePick(VSOC_ARR),3600);return}
  if(v.stage==='inside'){var t4=v.tgt,rest=lifePhase()==='lunch'||lifePhase()==='night';
   if(now-v.t1>v.stay||!rest){if(A.spot&&A.spot.owner===A)A.spot.owner=null;A.spot=null;goTo(A,{x:t4.ox+.9,z:t4.cz,dep:t4,yaw:-PI/2,pose:'stand',dur:[9999,9999],out:[]});v.stage='exit';lifeSay(A,lifePick(VSOC_BACK),3600);return}
+  if(now>(v.cx||0)){v.cx=now+rr(7000,11000);var hs=null,hd=99;for(var hk in actors){var H=actors[hk];if(H===A||H.vis||H.dep!==t4||H.st==='planned'||H.st==='off')continue;var dd2=Math.hypot(H.x-A.x,H.z-A.z);if(dd2<hd){hd=dd2;hs=H}}
+   if(hs&&hd<4.5){A.tyaw=Math.atan2(hs.x-A.x,hs.z-A.z);hs.tyaw=Math.atan2(A.x-hs.x,A.z-hs.z);A.fx={k:'wave',t0:now,until:now+1200};lifeSay(A,lifePick(VCH_V),3800);(function(HS,AA){setTimeout(function(){lifeSay(HS,lifePick(VCH_H),3800);HS.fx={k:'hop',t0:Date.now(),until:Date.now()+900}},1800)})(hs,A)}}
   if(now>v.nx){v.nx=now+rr(5000,9000);var tg=pickTarget(A);if(tg.desk)tg={x:t4.ox+rr(2,15),z:t4.hz+rr(-.3,.3),yaw:rr(-PI,PI),pose:'stand',dur:[2,5],out:[]};goTo(A,tg)}return}
  if(v.stage==='exit'){var t5=v.tgt,w5=WP(t5,A.x,A.z);A.dep=WORLD;A.x=w5[0];A.z=w5[1];A.out=[];A.pose='stand';A.path=v.pts.slice().reverse();v.stage='back';return}
  if(v.stage==='go'){A.tyaw=Math.atan2(v.tgt.wx-A.x,v.tgt.wz-A.z);A.pose='stand';v.stage='wait';v.t1=now;v.nx=now+2500;return}
@@ -1017,7 +1021,7 @@ function itemAgent(i){var f=(ghField(i.body,'Agent')||'').toLowerCase();if(!f&&/
 function isLenh(i){return (i.labels||[]).some(function(l){return l.name==='lenh'})}
 function lenhChay(i){var L=(i.labels||[]).map(function(l){return l.name});return i.state==='open'&&L.indexOf('lenh')>=0&&L.indexOf('duyet')>=0&&L.indexOf('da-xu-ly')<0&&L.indexOf('xong-luot')<0&&L.indexOf('loi-lenh')<0}
 function agentRole(a){return a.id==='quan-ly-viec'?'qlcv':a.id==='telegram'?'tele':a.id==='trinh-sat'?'ts':a.name==='Trưởng nhóm'?'lead':/^Ads/.test(a.name)?'ads':/^Nghiên cứu sản phẩm/.test(a.name)?'sp':/^(Content|Viết bài)/.test(a.name)?'vb':/^Chiến lược nội dung/.test(a.name)?'cl':/^Biên tập/.test(a.name)?'bt':/^Ý tưởng hình ảnh/.test(a.name)?'ah':/^Nghiên cứu khách hàng/.test(a.name)?'kh':/^Xu hướng/.test(a.name)?'xh':/^Săn sự kiện/.test(a.name)?'sk':/^TikTok/.test(a.name)?'tt':''}
-var APP_V='20261025-2240r';
+var APP_V='20261025-2250r';
 function chkVer(first){try{fetch('index.html?_='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/APP_V='([^']+)'/);if(!m||m[1]===APP_V)return;
  if(first&&performance.now()<6000&&!sessionStorage.getItem('vpd_rl_'+m[1])){sessionStorage.setItem('vpd_rl_'+m[1],'1');location.reload();return}
  if(document.getElementById('newver'))return;var b=document.createElement('button');b.id='newver';b.textContent='Có bản mới, bấm để tải lại';b.style.cssText='position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:60;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:inherit;font-size:13px;box-shadow:var(--sh);cursor:pointer';b.onclick=function(){location.reload()};document.body.appendChild(b)}).catch(function(){})}catch(e){}}
