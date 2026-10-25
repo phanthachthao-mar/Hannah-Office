@@ -480,7 +480,7 @@
       "updated": "2026-10-23T03:30:00Z",
       "short": "Kế hoạch marketing"
     },
-{
+    {
       "id": "mka-12",
       "dept": "mka",
       "order": 12,
@@ -570,6 +570,46 @@
       "status": "ready",
       "updated": "2026-10-24T04:30:00Z",
       "short": "Ảnh thành video ngắn"
+    },
+    {
+      "id": "bq-14",
+      "dept": "bq",
+      "order": 14,
+      "name": "Thiết kế Bách Quang",
+      "role": "Lên idea, tổng hợp ảnh và tài liệu cần, dựng demo, giữ kho ảnh; nộp qua Content và Nghiên cứu sản phẩm rồi Giám sát thiết kế",
+      "status": "idle",
+      "updated": "2026-10-25T12:30:00Z",
+      "short": "Idea, ảnh, demo thiết kế"
+    },
+    {
+      "id": "mka-13",
+      "dept": "mka",
+      "order": 13,
+      "name": "Thiết kế Asia New Vision",
+      "role": "Lên idea, tổng hợp ảnh và tài liệu cần, dựng demo; nộp qua Content và Nghiên cứu sản phẩm rồi Giám sát thiết kế",
+      "status": "idle",
+      "updated": "2026-10-25T12:30:00Z",
+      "short": "Idea, ảnh, demo thiết kế"
+    },
+    {
+      "id": "el-12",
+      "dept": "el",
+      "order": 12,
+      "name": "Thiết kế Ember Lens",
+      "role": "Lên idea, tổng hợp ảnh và tài liệu cần, dựng demo; nộp qua Content và Nghiên cứu sản phẩm rồi Giám sát thiết kế",
+      "status": "idle",
+      "updated": "2026-10-25T12:30:00Z",
+      "short": "Idea, ảnh, demo thiết kế"
+    },
+    {
+      "id": "ops-9",
+      "dept": "ops",
+      "order": 9,
+      "name": "Giám sát thiết kế",
+      "role": "Nhận hồ sơ từ 3 agent Thiết kế, tổng hợp gửi Hannah duyệt; nhắc Hannah cập nhật tiến độ việc thiết kế cô tự làm",
+      "status": "idle",
+      "updated": "2026-10-25T12:30:00Z",
+      "short": "Duyệt thiết kế, nhắc tiến độ"
     }
   ],
   "activity": [],
