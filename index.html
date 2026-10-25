@@ -746,14 +746,14 @@ function visTick(A){var v=A.vis,now=Date.now();
   if(A.spot&&A.spot.owner===A)A.spot.owner=null;A.spot=null;v.pts=vPath(h,v.tgt,v.k);A.path=v.pts.slice();v.stage='go';lifeSay(A,lifePick(v.kind==='ops'?VOPS_ARR:VSOC_ARR),3800,v.kind==='ops');return}
  if(v.stage==='go'){A.tyaw=Math.atan2(v.tgt.wx-A.x,v.tgt.wz-A.z);A.pose='stand';v.stage='wait';v.t1=now;v.nx=now+2500;return}
  if(v.stage==='wait'){A.tyaw=Math.atan2(v.tgt.wx-A.x,v.tgt.wz-A.z);
-  var done=v.kind==='ops'?(!A.a.den||now-v.t1>600000):(now-v.t1>v.stay||lifePhase()!=='lunch');
+  var done=v.kind==='ops'?(!A.a.den||now-v.t1>600000):(now-v.t1>v.stay||(lifePhase()!=='lunch'&&lifePhase()!=='night'));
   if(done){v.stage='back';A.path=v.pts.slice().reverse();lifeSay(A,lifePick(v.kind==='ops'?VOPS_BACK:VSOC_BACK),3600);return}
   if(now>v.nx){v.nx=now+rr(6500,10000);lifeSay(A,lifePick(v.kind==='ops'?VOPS_WAIT:VSOC_WAIT),4600,false)}return}
  if(v.stage==='back'){var h2=v.home;A.dep=h2;A.x=h2.ox+.9;A.z=h2.cz;A.out=deskOut(h2,A.i);A.pose='stand';A.yaw=PI/2;A.tyaw=PI/2;A.timer=rr(0,3);A.vis=null}}
 function visCheck(){var now=Date.now();if(REDUCE||now<(visCheck.t||0))return;visCheck.t=now+4000;
  var ops=deptOf('ops');if(!ops)return;
  for(var k in actors){var A=actors[k];if(!A.vis&&A.a&&A.a.den==='ops'&&A.dep!==ops&&A.dep!==WORLD)startVisit(A,ops,'ops')}
- if(isDem()||lifePhase()!=='lunch'||Math.random()>.35)return;
+ if((lifePhase()!=='lunch'&&lifePhase()!=='night')||Math.random()>.25)return;
  var soc=0,idl=[];for(var k2 in actors){var B=actors[k2];if(B.vis&&B.vis.kind==='soc')soc++;else if(!B.vis&&B.st==='idle'&&!B.path.length&&(B.dep.id==='bq'||B.dep.id==='mka'||B.dep.id==='el'))idl.push(B)}
  if(soc>=2||!idl.length)return;var V=idl[(Math.random()*idl.length)|0],os=['bq','mka','el'].filter(function(x){return x!==V.dep.id}),tg=deptOf(os[(Math.random()*os.length)|0]);
  startVisit(V,tg,'soc');if(V.vis)V.vis.stay=rr(20000,45000)}
@@ -1010,7 +1010,7 @@ function itemAgent(i){var f=(ghField(i.body,'Agent')||'').toLowerCase();if(!f&&/
 function isLenh(i){return (i.labels||[]).some(function(l){return l.name==='lenh'})}
 function lenhChay(i){var L=(i.labels||[]).map(function(l){return l.name});return i.state==='open'&&L.indexOf('lenh')>=0&&L.indexOf('duyet')>=0&&L.indexOf('da-xu-ly')<0&&L.indexOf('xong-luot')<0&&L.indexOf('loi-lenh')<0}
 function agentRole(a){return a.id==='quan-ly-viec'?'qlcv':a.id==='telegram'?'tele':a.id==='trinh-sat'?'ts':a.name==='Trưởng nhóm'?'lead':/^Ads/.test(a.name)?'ads':/^Nghiên cứu sản phẩm/.test(a.name)?'sp':/^(Content|Viết bài)/.test(a.name)?'vb':/^Chiến lược nội dung/.test(a.name)?'cl':/^Biên tập/.test(a.name)?'bt':/^Ý tưởng hình ảnh/.test(a.name)?'ah':/^Nghiên cứu khách hàng/.test(a.name)?'kh':/^Xu hướng/.test(a.name)?'xh':/^Săn sự kiện/.test(a.name)?'sk':/^TikTok/.test(a.name)?'tt':''}
-var APP_V='20261025-1930r';
+var APP_V='20261025-2155r';
 function chkVer(first){try{fetch('index.html?_='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/APP_V='([^']+)'/);if(!m||m[1]===APP_V)return;
  if(first&&performance.now()<6000&&!sessionStorage.getItem('vpd_rl_'+m[1])){sessionStorage.setItem('vpd_rl_'+m[1],'1');location.reload();return}
  if(document.getElementById('newver'))return;var b=document.createElement('button');b.id='newver';b.textContent='Có bản mới, bấm để tải lại';b.style.cssText='position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:60;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:inherit;font-size:13px;box-shadow:var(--sh);cursor:pointer';b.onclick=function(){location.reload()};document.body.appendChild(b)}).catch(function(){})}catch(e){}}
