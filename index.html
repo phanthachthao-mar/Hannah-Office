@@ -735,8 +735,7 @@ var VSOC_WAIT=['Ghé cửa chào thôi, giờ làm việc em không vào đượ
 var VSOC_BACK=['Hết giờ nghỉ, em về làm đây!','Chào nha, em về văn phòng mình!'];
 function vAng(d){return Math.atan2(d.wz-CZ,d.wx-CX)}
 function vHub(a,r){return [CX+Math.cos(a)*r,CZ+Math.sin(a)*r]}
-function vPath(h,t,k){var a1=vAng(h),a2=vAng(t),df=Math.atan2(Math.sin(a2-a1),Math.cos(a2-a1)),n=Math.max(1,Math.ceil(Math.abs(df)/.35)),r=13.5,o=[[h.gw[0],h.gw[1]],vHub(a1,r)],i;
- for(i=1;i<n;i++)o.push(vHub(a1+df*i/n,r));o.push(vHub(a2,r));
+function vPath(h,t,k){var o=[[h.gw[0],h.gw[1]],[CX,CZ]];
  var ux=(CX-t.wx),uz=(CZ-t.wz),ul=Math.hypot(ux,uz)||1;ux/=ul;uz/=ul;var px=-uz,pz=ux,lat=((k%3)-1)*1.15,out=Math.floor(k/3)*.9;
  o.push([t.gw[0]+px*lat+ux*(.5+out),t.gw[1]+pz*lat+uz*(.5+out)]);return o}
 function vCount(t){var n=0;for(var k in actors)if(actors[k].vis&&actors[k].vis.tgt===t)n++;return n}
@@ -1012,7 +1011,7 @@ function itemAgent(i){var f=(ghField(i.body,'Agent')||'').toLowerCase();if(!f&&/
 function isLenh(i){return (i.labels||[]).some(function(l){return l.name==='lenh'})}
 function lenhChay(i){var L=(i.labels||[]).map(function(l){return l.name});return i.state==='open'&&L.indexOf('lenh')>=0&&L.indexOf('duyet')>=0&&L.indexOf('da-xu-ly')<0&&L.indexOf('xong-luot')<0&&L.indexOf('loi-lenh')<0}
 function agentRole(a){return a.id==='quan-ly-viec'?'qlcv':a.id==='telegram'?'tele':a.id==='trinh-sat'?'ts':a.name==='Trưởng nhóm'?'lead':/^Ads/.test(a.name)?'ads':/^Nghiên cứu sản phẩm/.test(a.name)?'sp':/^(Content|Viết bài)/.test(a.name)?'vb':/^Chiến lược nội dung/.test(a.name)?'cl':/^Biên tập/.test(a.name)?'bt':/^Ý tưởng hình ảnh/.test(a.name)?'ah':/^Nghiên cứu khách hàng/.test(a.name)?'kh':/^Xu hướng/.test(a.name)?'xh':/^Săn sự kiện/.test(a.name)?'sk':/^TikTok/.test(a.name)?'tt':''}
-var APP_V='20261025-2215r';
+var APP_V='20261025-2225r';
 function chkVer(first){try{fetch('index.html?_='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/APP_V='([^']+)'/);if(!m||m[1]===APP_V)return;
  if(first&&performance.now()<6000&&!sessionStorage.getItem('vpd_rl_'+m[1])){sessionStorage.setItem('vpd_rl_'+m[1],'1');location.reload();return}
  if(document.getElementById('newver'))return;var b=document.createElement('button');b.id='newver';b.textContent='Có bản mới, bấm để tải lại';b.style.cssText='position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:60;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:inherit;font-size:13px;box-shadow:var(--sh);cursor:pointer';b.onclick=function(){location.reload()};document.body.appendChild(b)}).catch(function(){})}catch(e){}}
