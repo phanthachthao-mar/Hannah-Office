@@ -635,7 +635,7 @@ function update(dt,t){lifeTick(dt);visCheck();for(var k in actors){var A=actors[
  var dy=((A.tyaw!=null?A.tyaw:A.yaw)-A.yaw);dy=Math.atan2(Math.sin(dy),Math.cos(dy));A.yaw+=dy*Math.min(1,dt*7);
  if(REDUCE)continue;
  if(A.vis&&!A.path.length&&(!A.tgt||A.vis.stage==='toGate'||A.vis.stage==='exit')){A.tgt=null;visTick(A)}
- if(A.pose!=='sit'&&A.pose!=='lie'&&A.dep&&OBS[A.dep.id]){var ob=OBS[A.dep.id];for(var oi=0;oi<ob.length;oi++){var o_=ob[oi],ox_=A.x-o_[0],oz_=A.z-o_[1],od_=Math.hypot(ox_,oz_),rr_=o_[2]*.8;if(od_<rr_){if(od_<.01){ox_=1;oz_=0;od_=1}A.x=o_[0]+ox_/od_*rr_;A.z=o_[1]+oz_/od_*rr_}}}
+ if(A.pose!=='sit'&&A.pose!=='lie'&&A.dep&&OBS[A.dep.id]){var ob=OBS[A.dep.id];for(var oi=0;oi<ob.length;oi++){var o_=ob[oi],ox_=A.x-o_[0],oz_=A.z-o_[1],od_=Math.hypot(ox_,oz_),rr_=A.path.length?o_[2]*.8:o_[2]+.7;if(od_<rr_){if(od_<.01){ox_=1;oz_=0;od_=1}A.x=o_[0]+ox_/od_*rr_;A.z=o_[1]+oz_/od_*rr_}}}
  if(A.path.length&&!REDUCE){var mv=Math.hypot(A.x-(A.lx||0),A.z-(A.lz||0));A.lx=A.x;A.lz=A.z;if(mv<.2*dt){A.stk=(A.stk||0)+dt;if(A.stk>1.5){A.stk=0;var np=A.path.shift();if(np){A.x=np[0];A.z=np[1]}if(!A.path.length&&A.tgt)arrive(A)}}else A.stk=0}
  if(A.path.length){var p=A.path[0],dx=p[0]-A.x,dz=p[1]-A.z,l=Math.hypot(dx,dz),sp=(A.rush?2.1:1.25)*dt;
   if(l<=sp){A.x=p[0];A.z=p[1];A.path.shift();if(!A.path.length&&A.tgt)arrive(A)}else{A.x+=dx/l*sp;A.z+=dz/l*sp;A.tyaw=Math.atan2(dx,dz);A.wp+=dt*7}
@@ -1022,7 +1022,7 @@ function itemAgent(i){var f=(ghField(i.body,'Agent')||'').toLowerCase();if(!f&&/
 function isLenh(i){return (i.labels||[]).some(function(l){return l.name==='lenh'})}
 function lenhChay(i){var L=(i.labels||[]).map(function(l){return l.name});return i.state==='open'&&L.indexOf('lenh')>=0&&L.indexOf('duyet')>=0&&L.indexOf('da-xu-ly')<0&&L.indexOf('xong-luot')<0&&L.indexOf('loi-lenh')<0}
 function agentRole(a){return a.id==='quan-ly-viec'?'qlcv':a.id==='telegram'?'tele':a.id==='trinh-sat'?'ts':a.name==='Trưởng nhóm'?'lead':/^Ads/.test(a.name)?'ads':/^Nghiên cứu sản phẩm/.test(a.name)?'sp':/^(Content|Viết bài)/.test(a.name)?'vb':/^Chiến lược nội dung/.test(a.name)?'cl':/^Biên tập/.test(a.name)?'bt':/^Ý tưởng hình ảnh/.test(a.name)?'ah':/^Nghiên cứu khách hàng/.test(a.name)?'kh':/^Xu hướng/.test(a.name)?'xh':/^Săn sự kiện/.test(a.name)?'sk':/^TikTok/.test(a.name)?'tt':''}
-var APP_V='20261026-1235r';
+var APP_V='20261026-1250r';
 function chkVer(first){try{fetch('index.html?_='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/APP_V='([^']+)'/);if(!m||m[1]===APP_V)return;
  if(first&&performance.now()<6000&&!sessionStorage.getItem('vpd_rl_'+m[1])){sessionStorage.setItem('vpd_rl_'+m[1],'1');location.reload();return}
  if(document.getElementById('newver'))return;var b=document.createElement('button');b.id='newver';b.textContent='Có bản mới, bấm để tải lại';b.style.cssText='position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:60;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:inherit;font-size:13px;box-shadow:var(--sh);cursor:pointer';b.onclick=function(){location.reload()};document.body.appendChild(b)}).catch(function(){})}catch(e){}}
