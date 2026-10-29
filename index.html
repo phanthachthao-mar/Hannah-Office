@@ -1325,14 +1325,14 @@ function stcGo(id){var a=state.agents.filter(function(g){return g.id===id})[0];i
 function drawStc(){var c=document.getElementById('stc');if(!c)return;if(!STC_OPEN||!state.ready){c.hidden=true;return}
  var rows=state.agents.filter(function(a){return a.status==='ready'||a.status==='waiting'||a.status==='idle'});
  if(focus)rows=rows.filter(function(a){return a.dept===focus});
- var ord={ready:0,waiting:1,idle:2};rows.sort(function(x,y){return ord[x.status]-ord[y.status]||(x.order||0)-(y.order||0)});
- var data=rows.map(function(a){var dd=DEPTS.filter(function(d){return d.id===a.dept})[0];return [a.id,a.status,a.name+(!focus&&dd?' · '+dd.name:''),stcText(a)]});
+ var ord={ready:0,waiting:1,idle:2};var meetOf=function(a){return !!((CHAT.meet&&a.name===(CHAT.meetAgent||CHAT.agent)&&(!CHAT.meetDept||a.dept===CHAT.meetDept))||(REMOTE_MEET&&a.name===REMOTE_MEET.agent&&a.dept===REMOTE_MEET.dept))};rows.sort(function(x,y){return (meetOf(y)?1:0)-(meetOf(x)?1:0)||ord[x.status]-ord[y.status]||(x.order||0)-(y.order||0)});
+ var data=rows.map(function(a){var dd=DEPTS.filter(function(d){return d.id===a.dept})[0];return [a.id,a.status,a.name+(!focus&&dd?' · '+dd.name:''),stcText(a),meetOf(a)]});
  var sg=(focus||'')+'|'+data.map(function(r){return r.join('~')}).join('|');
  if(!c.hidden&&c.dataset.sg===sg&&c.firstChild)return;c.dataset.sg=sg;c.hidden=false;
  var ol=c.querySelector('.sl'),sc=ol?ol.scrollTop:0;c.textContent='';
  var dn=focus?(DEPTS.filter(function(d){return d.id===focus})[0]||{}).name:'Cả văn phòng';
  c.appendChild(h('div','sh','Trạng thái · '+(dn||'')));var L=h('div','sl'),last='';
- data.forEach(function(r){var g=r[1]==='ready'?'Đang làm':r[1]==='waiting'?'Đang chờ':'Rảnh / nghỉ';if(g!==last){last=g;L.appendChild(h('div','sg',g))}
+ data.forEach(function(r){var g=r[4]?'Đang họp với Hannah':r[1]==='ready'?'Đang làm':r[1]==='waiting'?'Đang chờ':'Rảnh / nghỉ';if(g!==last){last=g;L.appendChild(h('div','sg',g))}
   var e=h('div','sr s-'+r[1]);e.appendChild(h('i'));e.appendChild(h('b','',r[2]));e.appendChild(h('span','',r[3]));e.onclick=function(){stcGo(r[0]);setTimeout(function(){funHello(r[0])},900)};L.appendChild(e)});
  if(!data.length)L.appendChild(h('div','sg','Chưa có agent nào'));c.appendChild(L);L.scrollTop=sc}
 document.getElementById('stb').onclick=function(){STC_OPEN=!STC_OPEN;try{localStorage.setItem('vpd_stc',STC_OPEN?'1':'0')}catch(_){}drawStc()};
