@@ -625,7 +625,7 @@ function buildDesk(d,i,ag){CUR=sO;var p=slotPos(d,i),st=ag?ag.status:'planned',o
  sb(cx,.39,cz,.46,.07,.5,'#2c3140');sb(bk,.74,cz,.06,.5,.46,'#2c3140');sb(cx,.52,cz-.27,.34,.04,.04,'#20242f');sb(cx,.52,cz+.27,.34,.04,.04,'#20242f');sb(cx,.2,cz,.06,.34,.06,'#111');
  [0,1,2,3,4].forEach(function(q){var a=q*PI*2/5+.3;sb(cx+Math.cos(a)*.14,.05,cz+Math.sin(a)*.14,.3,.04,.05,'#161922')})}
 function buildStatic(){sO.n=0;sT.n=0;sP.n=0;sS.n=0;CUR=sO;buildFloor();
- DEPTS.forEach(function(d){CURD=d;OBS[d.id]=[];FR=d.fr;lounge(d);plaza(d);var m=slotsOf(d.id);for(var i=0;i<d.n;i++){var pod=(i/4)|0;FR=podFR(d,pod);if(i%4===0){var o=CUR;CUR=sT;var t=podT(d,pod);sb(t.xc,.012,t.zc,3.9,.024,4.7,mix('#dfe6ff',d.c,.3),.22);CUR=o}buildDesk(d,i,m[i])}FR=null});
+ DEPTS.forEach(function(d){CURD=d;OBS[d.id]=[];FR=d.fr;d.n=Math.max(4,slotsOf(d.id).length);lounge(d);plaza(d);var m=slotsOf(d.id);for(var i=0;i<d.n;i++){var pod=(i/4)|0;FR=podFR(d,pod);if(i%4===0){var o=CUR;CUR=sT;var t=podT(d,pod);sb(t.xc,.012,t.zc,3.9,.024,4.7,mix('#dfe6ff',d.c,.3),.22);CUR=o}buildDesk(d,i,m[i])}FR=null});
  buildPartitions()}
 function slotsOf(id){return state.agents.filter(function(a){return a.dept===id}).sort(function(a,b){return (a.order||0)-(b.order||0)||(a.id<b.id?-1:1)})}
 // ---------- behaviour ----------
