@@ -399,7 +399,7 @@ var RC=['#6f8dff','#5fe08c','#ff8e5e','#a67cff','#f2f4f8','#ffd25e','#ff7ab0','#
 function deptOf(id){for(var i=0;i<DEPTS.length;i++)if(DEPTS[i].id===id)return DEPTS[i]}
 function slotPos(d,i){var pod=(i/4)|0,w=i%4,side=w%2?1:-1,row=w>>1,xc=d.x+1.8+3*pod,cx=xc+side*.95,cz=d.z+5.85+row*1.9;return {dx:cx-.8,dz:cz-1.2,cx:cx,cz:cz,xc:xc,side:side,pod:pod,yaw:-side*PI/2,mx:xc+side*.4,mz:cz,psi:side*(PI/2-.5),ax:xc}}
 function monM(p,k){var SC=M4();SC[0]=.74;return mul(mul(tr(p.mx,0,p.mz+k*.36),rY(p.psi+p.side*k*.3)),SC)}
-var PODA=[128,90,52,14];
+var PODA=[128,90,52,4];
 function podT(d,pod){var ph=PODA[pod]*PI/180,r=8.4,th=-ph,xc=d.x+1.8+3*pod,zc=d.z+6.8;return {th:th,xc:xc,zc:zc,px:d.cx+Math.cos(ph)*r,pz:d.cz+Math.sin(ph)*r}}
 function podP(d,pod,x,z){var t=podT(d,pod),dx=x-t.xc,dz=z-t.zc,c=Math.cos(t.th),s=Math.sin(t.th);return [t.px+c*dx+s*dz,t.pz-s*dx+c*dz]}
 function podFR(d,pod){var t=podT(d,pod);return mul(d.fr,mul(tr(t.px,0,t.pz),mul(rY(t.th),tr(-t.xc,0,-t.zc))))}
