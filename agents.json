@@ -31,16 +31,6 @@
       "short": "Xu hướng có link nguồn"
     },
     {
-      "id": "bq-4",
-      "dept": "bq",
-      "order": 4,
-      "name": "Chiến lược nội dung",
-      "role": "Lịch nội dung theo tuần",
-      "status": "ready",
-      "updated": "2026-10-22T07:50:00Z",
-      "short": "Lịch nội dung theo tuần"
-    },
-    {
       "id": "bq-5",
       "dept": "bq",
       "order": 5,
@@ -49,26 +39,6 @@
       "status": "ready",
       "updated": "2026-10-22T05:15:00Z",
       "short": "Bài viết, tạo ảnh, kho ảnh"
-    },
-    {
-      "id": "bq-6",
-      "dept": "bq",
-      "order": 6,
-      "name": "Biên tập",
-      "role": "Kiểm tra nguồn, giọng thương hiệu, lỗi chính tả",
-      "status": "ready",
-      "updated": "2026-10-22T07:50:00Z",
-      "short": "Soát nguồn, giọng, chính tả"
-    },
-    {
-      "id": "bq-7",
-      "dept": "bq",
-      "order": 7,
-      "name": "Ý tưởng hình ảnh",
-      "role": "Brief ảnh và video (ảnh thật do Content tạo và lưu)",
-      "status": "ready",
-      "updated": "2026-10-22T07:50:00Z",
-      "short": "Brief ảnh và video"
     },
     {
       "id": "bq-8",
@@ -141,16 +111,6 @@
       "short": "Xu hướng có link nguồn"
     },
     {
-      "id": "mka-4",
-      "dept": "mka",
-      "order": 4,
-      "name": "Chiến lược nội dung",
-      "role": "Lịch nội dung theo tuần",
-      "status": "ready",
-      "updated": "2026-10-22T07:50:00Z",
-      "short": "Lịch nội dung theo tuần"
-    },
-    {
       "id": "mka-5",
       "dept": "mka",
       "order": 5,
@@ -159,26 +119,6 @@
       "status": "ready",
       "updated": "2026-10-22T07:50:00Z",
       "short": "Bài viết, tạo ảnh, kho ảnh"
-    },
-    {
-      "id": "mka-6",
-      "dept": "mka",
-      "order": 6,
-      "name": "Biên tập",
-      "role": "Kiểm tra nguồn, giọng thương hiệu, lỗi chính tả",
-      "status": "ready",
-      "updated": "2026-10-22T07:50:00Z",
-      "short": "Soát nguồn, giọng, chính tả"
-    },
-    {
-      "id": "mka-7",
-      "dept": "mka",
-      "order": 7,
-      "name": "Ý tưởng hình ảnh",
-      "role": "Brief ảnh và video (ảnh thật do Content tạo và lưu)",
-      "status": "ready",
-      "updated": "2026-10-22T07:50:00Z",
-      "short": "Brief ảnh và video"
     },
     {
       "id": "mka-8",
@@ -241,16 +181,6 @@
       "short": "Xu hướng có link nguồn"
     },
     {
-      "id": "el-4",
-      "dept": "el",
-      "order": 4,
-      "name": "Chiến lược nội dung",
-      "role": "Lịch nội dung theo tuần",
-      "status": "ready",
-      "updated": "2026-10-22T07:50:00Z",
-      "short": "Lịch nội dung theo tuần"
-    },
-    {
       "id": "el-5",
       "dept": "el",
       "order": 5,
@@ -259,26 +189,6 @@
       "status": "ready",
       "updated": "2026-10-22T07:50:00Z",
       "short": "Bài viết, tạo ảnh, kho ảnh"
-    },
-    {
-      "id": "el-6",
-      "dept": "el",
-      "order": 6,
-      "name": "Biên tập",
-      "role": "Kiểm tra nguồn, giọng thương hiệu, lỗi chính tả",
-      "status": "ready",
-      "updated": "2026-10-22T07:50:00Z",
-      "short": "Soát nguồn, giọng, chính tả"
-    },
-    {
-      "id": "el-7",
-      "dept": "el",
-      "order": 7,
-      "name": "Ý tưởng hình ảnh",
-      "role": "Brief ảnh và video (ảnh thật do Content tạo và lưu)",
-      "status": "ready",
-      "updated": "2026-10-22T07:50:00Z",
-      "short": "Brief ảnh và video"
     },
     {
       "id": "el-8",
@@ -351,16 +261,6 @@
       "short": "Nền tảng mới tại Việt Nam, 9:00"
     },
     {
-      "id": "trinh-sat",
-      "dept": "ops",
-      "order": 5,
-      "name": "Trinh sát đối thủ",
-      "role": "Theo dõi đối thủ, so sánh và đề xuất thay đổi",
-      "status": "ready",
-      "updated": "2026-10-22T12:55:00Z",
-      "short": "Theo dõi đối thủ, so sánh, đề xuất"
-    },
-    {
       "id": "quan-ly-viec",
       "dept": "ops",
       "order": 6,
@@ -379,16 +279,6 @@
       "status": "ready",
       "updated": "2026-10-23T02:00:00Z",
       "short": "Bản tin 23:00 mỗi đêm"
-    },
-    {
-      "id": "ops-8",
-      "dept": "ops",
-      "order": 8,
-      "name": "Cố vấn thông thái",
-      "role": "Cố vấn cấp cao: trả lời thẳng thắn câu hỏi chiến lược, vận hành, soát lại việc các agent",
-      "status": "ready",
-      "updated": "2026-10-24T03:00:00Z",
-      "short": "Mở tin bằng chữ \"cố vấn\""
     },
     {
       "id": "sys-1",
@@ -419,16 +309,6 @@
       "status": "ready",
       "updated": "2026-10-22T07:05:00Z",
       "short": "Báo số liệu bất thường"
-    },
-    {
-      "id": "sys-4",
-      "dept": "sys",
-      "order": 4,
-      "name": "Theo dõi ads liên tục",
-      "role": "Theo dõi quảng cáo cả 3 thương hiệu trong ngày, báo ngay khi bất thường",
-      "status": "ready",
-      "updated": "2026-10-23T02:30:00Z",
-      "short": "Báo ads bất thường mỗi giờ"
     },
     {
       "id": "telegram",
