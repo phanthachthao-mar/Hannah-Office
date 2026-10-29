@@ -870,7 +870,7 @@ function focusOffice(id){var d=deptOf(id),v=focusView();focus=id;cam.goal={x:d.w
 function fitOffs(){var o=document.getElementById('offs');if(!o||!o.parentElement)return;o.classList.remove('gon');if(window.innerWidth<=700)return;var b=o.children,w=16+4*Math.max(0,b.length-1);for(var i=0;i<b.length;i++)w+=b[i].offsetWidth;if(w>o.parentElement.clientWidth-24)o.classList.add('gon')}
 window.addEventListener('resize',fitOffs);setTimeout(fitOffs,300);setTimeout(fitOffs,1500);
 function markOffs(){var b=document.querySelectorAll('#offs button');for(var i=0;i<b.length;i++)b[i].classList.toggle('on',(b[i].dataset.id||'')===(focus||''));fitOffs()}
-function resize(){var s=document.getElementById('stage');dpr=Math.min(window.devicePixelRatio||1,2);cw=s.clientWidth;chh=s.clientHeight;var rs=LITE==='nhe'?.75:(cw<900&&(window.devicePixelRatio||1)>1.5)?Math.min(window.devicePixelRatio,2):1;cv.width=Math.round(cw*rs);cv.height=Math.round(chh*rs);if(gl)gl.viewport(0,0,cv.width,cv.height);if(typeof cam!=='undefined'&&cam&&cw&&!focus&&!cam.touched&&typeof fitCam==='function')fitCam()}
+function resize(){var s=document.getElementById('stage');dpr=Math.min(window.devicePixelRatio||1,2);cw=s.clientWidth;chh=s.clientHeight;var rs=LITE==='nhe'?.75:Math.min(window.devicePixelRatio||1,2);cv.width=Math.round(cw*rs);cv.height=Math.round(chh*rs);if(gl)gl.viewport(0,0,cv.width,cv.height);if(typeof cam!=='undefined'&&cam&&cw&&!focus&&!cam.touched&&typeof fitCam==='function')fitCam()}
 function project(x,y,z){var m=VP,w=m[3]*x+m[7]*y+m[11]*z+m[15];if(w<=.01)return null;return [(m[0]*x+m[4]*y+m[8]*z+m[12])/w*.5*cw+cw/2,(1-(m[1]*x+m[5]*y+m[9]*z+m[13])/w)*.5*chh,w]}
 var tags={},chips=[],scr={},BUB={};
 var rchips=[],lchips=[],orbEl=null,glEls=[];
