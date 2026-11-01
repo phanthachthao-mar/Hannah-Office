@@ -311,9 +311,15 @@ html.no3d #stage{display:none!important}
 html.no3d .wrap{grid-template-columns:minmax(0,1fr)!important}
 @media(min-width:901px){html.no3d .panel{height:auto!important}html.no3d .panel .list{max-height:68vh;overflow:auto}}
 /* Tắt 3D: đưa cột trạng thái và thanh Tổng quan ra khỏi khung 3D, nằm trong bảng bên phải */
-html.no3d .stc{position:static!important;width:auto!important;top:auto!important;right:auto!important;bottom:auto!important;max-height:46vh;margin:0 0 10px;border-radius:14px}
+html.no3d .stc{position:static!important;width:auto!important;top:auto!important;right:auto!important;bottom:auto!important;max-height:210px;margin:0 0 8px;border-radius:12px;box-shadow:none;background:transparent;border:1px solid var(--line)}
+html.no3d .stc .sh{padding:6px 10px 4px;font-size:12px}
+html.no3d .stc .sg{padding:4px 4px 1px;font-size:10px}
+html.no3d .stc .sr{padding:3px 4px;grid-template-columns:8px 1fr;gap:0 6px;border-bottom:0}
+html.no3d .stc .sr span{display:none}
+html.no3d .stc .sr b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+html.no3d .stc .sr i{margin-top:5px;width:7px;height:7px}
 html.no3d .stc[hidden]{display:none!important}
-html.no3d .offs{position:static!important;transform:none!important;left:auto!important;right:auto!important;bottom:auto!important;width:auto!important;max-width:none!important;margin:0 0 10px;justify-content:center;flex-wrap:wrap!important;overflow:visible!important}
+html.no3d .offs{position:static!important;transform:none!important;left:auto!important;right:auto!important;bottom:auto!important;width:auto!important;max-width:none!important;margin:0 0 8px;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;justify-content:center;flex-wrap:wrap!important;overflow:visible!important}
 </style>
 </head>
 <body>
