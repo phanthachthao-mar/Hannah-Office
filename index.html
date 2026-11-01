@@ -1105,7 +1105,7 @@ function ghLoad(){if(!GH.tok||GH.loading)return Promise.resolve();GH.loading=tru
 var DLATER=false,_drawList=drawList;
 function typingInList(){var a=document.activeElement,L=document.getElementById('cols')||document.getElementById('list');return !!(a&&L&&L.contains(a)&&/^(TEXTAREA|INPUT|SELECT)$/.test(a.tagName))}
 var TOUCHT=0,DTM=0;document.addEventListener('pointerdown',function(){TOUCHT=Date.now()},true);
-drawList=function(){if(typingInList()){DLATER=true;return}if(Date.now()-TOUCHT<900){clearTimeout(DTM);DTM=setTimeout(function(){drawList()},950);return}DLATER=false;_drawList()};
+drawList=function(X){if(X)return _drawList(X);if(typingInList()){DLATER=true;return}if(Date.now()-TOUCHT<900){clearTimeout(DTM);DTM=setTimeout(function(){drawList()},950);return}DLATER=false;_drawList()};
 (function(){var L=document.getElementById('cols')||document.getElementById('list');if(L)L.addEventListener('focusout',function(){setTimeout(function(){if(DLATER&&!typingInList())drawList()},250)})})();
 var DUYET_VIEC='da-duyet-viec';
 function isApproved(i){return (i.labels||[]).some(function(l){return l.name===DUYET_VIEC})}
