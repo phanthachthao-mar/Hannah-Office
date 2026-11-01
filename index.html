@@ -306,6 +306,10 @@ body.night .bb:not(.rush){background:linear-gradient(160deg,color-mix(in srgb,va
 /* Chỉ ẩn khung 3D khi WebGL không khởi tạo được; máy có 3D thì giữ nguyên */
 body.nogl #stage{display:none!important}
 body.nogl .wrap{grid-template-columns:minmax(0,1fr)!important}
+/* Tắt 3D: bỏ khung 3D và nền mây, danh sách chiếm cả dòng, gọn và cuộn trong khung */
+html.no3d #stage{display:none!important}
+html.no3d .wrap{grid-template-columns:minmax(0,1fr)!important}
+@media(min-width:901px){html.no3d .panel{height:auto!important}html.no3d .panel .list{max-height:68vh;overflow:auto}}
 </style>
 </head>
 <body>
@@ -880,6 +884,7 @@ function slats(t){CUR=dO;(window.CV||[]).forEach(function(c){FR=c.fr;var L=c.v?c
 var cam={az:.5,el:.92,dist:36,tx:CX,tz:CZ,goal:null},focus=null;
 var bufC=[],cv=document.getElementById('cv'),lab=document.getElementById('lab'),gl=null,prog=null,loc={},bufS=null,bufP=null,bufSt=null,bufT=null,bufD=null,bufDT=null,cw=1,chh=1,dpr=1,VP=null,CP3=[0,0,0],sig='',dirty=true;
 var LITE='tat';try{var _lv=localStorage.getItem('vpd_lite');if(_lv!==null)LITE=_lv}catch(_){}
+try{if(LITE==='tat')document.documentElement.classList.add('no3d')}catch(_){}
 function initGL(){gl=null;if(LITE==='tat')return false;(LITE==='nhe'?[]:[['webgl2',{antialias:true,alpha:true}],['webgl',{antialias:true,alpha:true}]]).concat([['webgl2',{antialias:false,alpha:true,powerPreference:'low-power'}],['webgl',{antialias:false,alpha:true,powerPreference:'low-power',failIfMajorPerformanceCaveat:false}],['experimental-webgl',{alpha:true}]]).some(function(c){try{gl=cv.getContext(c[0],c[1])}catch(e){gl=null}return !!gl});if(!gl){window.__glerr='WebGL không khởi tạo được (trình duyệt chặn đồ họa 3D)';try{document.body.classList.add('nogl')}catch(_){}return false}
  function sh(t,src){var s=gl.createShader(t);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(s));return s}
  prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));gl.linkProgram(prog);if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(prog));
