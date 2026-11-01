@@ -310,6 +310,10 @@ body.nogl .wrap{grid-template-columns:minmax(0,1fr)!important}
 html.no3d #stage{display:none!important}
 html.no3d .wrap{grid-template-columns:minmax(0,1fr)!important}
 @media(min-width:901px){html.no3d .panel{height:auto!important}html.no3d .panel .list{max-height:68vh;overflow:auto}}
+/* Tắt 3D: đưa cột trạng thái và thanh Tổng quan ra khỏi khung 3D, nằm trong bảng bên phải */
+html.no3d .stc{position:static!important;width:auto!important;top:auto!important;right:auto!important;bottom:auto!important;max-height:46vh;margin:0 0 10px;border-radius:14px}
+html.no3d .stc[hidden]{display:none!important}
+html.no3d .offs{position:static!important;transform:none!important;left:auto!important;right:auto!important;bottom:auto!important;width:auto!important;max-width:none!important;margin:0 0 10px;justify-content:center;flex-wrap:wrap!important;overflow:visible!important}
 </style>
 </head>
 <body>
@@ -884,7 +888,7 @@ function slats(t){CUR=dO;(window.CV||[]).forEach(function(c){FR=c.fr;var L=c.v?c
 var cam={az:.5,el:.92,dist:36,tx:CX,tz:CZ,goal:null},focus=null;
 var bufC=[],cv=document.getElementById('cv'),lab=document.getElementById('lab'),gl=null,prog=null,loc={},bufS=null,bufP=null,bufSt=null,bufT=null,bufD=null,bufDT=null,cw=1,chh=1,dpr=1,VP=null,CP3=[0,0,0],sig='',dirty=true;
 var LITE='tat';try{var _lv=localStorage.getItem('vpd_lite');if(_lv!==null)LITE=_lv}catch(_){}
-try{if(LITE==='tat')document.documentElement.classList.add('no3d')}catch(_){}
+try{if(LITE==='tat'){document.documentElement.classList.add('no3d');var _pn=document.querySelector('.panel'),_tb=_pn&&_pn.querySelector('.tabs');if(_tb){['stc','offs'].forEach(function(id){var _e=document.getElementById(id);if(_e)_pn.insertBefore(_e,_tb)})}}}catch(_){}
 function initGL(){gl=null;if(LITE==='tat')return false;(LITE==='nhe'?[]:[['webgl2',{antialias:true,alpha:true}],['webgl',{antialias:true,alpha:true}]]).concat([['webgl2',{antialias:false,alpha:true,powerPreference:'low-power'}],['webgl',{antialias:false,alpha:true,powerPreference:'low-power',failIfMajorPerformanceCaveat:false}],['experimental-webgl',{alpha:true}]]).some(function(c){try{gl=cv.getContext(c[0],c[1])}catch(e){gl=null}return !!gl});if(!gl){window.__glerr='WebGL không khởi tạo được (trình duyệt chặn đồ họa 3D)';try{document.body.classList.add('nogl')}catch(_){}return false}
  function sh(t,src){var s=gl.createShader(t);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(s));return s}
  prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));gl.linkProgram(prog);if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(prog));
@@ -1353,7 +1357,7 @@ function stcGo(id){var a=state.agents.filter(function(g){return g.id===id})[0];i
  if(a.dept&&a.dept!==focus)focusOffice(a.dept);
  if(A){var v=focusView(),w=WP(A.dep,A.x,A.z);cam.goal={x:w[0],z:w[1],d:v.d*.62,e:v.el,az:v.az+(A.dep?A.dep.th:0)}}
  render()}
-function drawStc(){var c=document.getElementById('stc');if(!c)return;if(!STC_OPEN||!state.ready){c.hidden=true;return}
+function drawStc(){var c=document.getElementById('stc');if(!c)return;if(!(STC_OPEN||LITE==='tat')||!state.ready){c.hidden=true;return}
  var rows=state.agents.filter(function(a){return a.status==='ready'||a.status==='waiting'||a.status==='idle'});
  if(focus)rows=rows.filter(function(a){return a.dept===focus});
  var ord={ready:0,waiting:1,idle:2};var meetOf=function(a){return !!((CHAT.meet&&a.name===(CHAT.meetAgent||CHAT.agent)&&(!CHAT.meetDept||a.dept===CHAT.meetDept))||(REMOTE_MEET&&a.name===REMOTE_MEET.agent&&a.dept===REMOTE_MEET.dept))};rows.sort(function(x,y){return (meetOf(y)?1:0)-(meetOf(x)?1:0)||ord[x.status]-ord[y.status]||(x.order||0)-(y.order||0)});
