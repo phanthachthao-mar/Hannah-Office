@@ -332,6 +332,12 @@ html.no3d .side .offs button{font-size:9px!important;padding:0 3px!important}
 html.no3d #col-chat .cb{max-width:94%!important;font-size:12px!important;line-height:1.35!important}
 html.no3d #col-chat .cmsgs{max-height:calc(100vh - 250px)!important;min-height:300px!important}
 html.no3d #col-chat .cbody{padding:8px!important}
+@media(min-width:901px){html.no3d #col-chat .cbody{display:flex!important;flex-direction:column!important;overflow:hidden!important}
+html.no3d #col-chat .chat{flex:1 1 0!important;min-height:0!important;display:flex!important;flex-direction:column!important;height:auto!important;overflow:hidden!important}
+html.no3d #col-chat .cwrap{flex:1 1 0!important;min-height:0!important;display:flex!important;flex-direction:column!important}
+html.no3d #col-chat .cmsgs{flex:1 1 0!important;min-height:0!important;max-height:none!important;overflow-y:auto!important}
+html.no3d #col-chat .cbar,html.no3d #col-chat .cin,html.no3d #col-chat .cfoot{flex:none!important}}
+
 html.no3d #col-task .chips{flex-wrap:nowrap!important;gap:3px!important;overflow:visible!important;width:100%}
 html.no3d #col-task .chips button,html.no3d #col-task .fchip{font-size:9.5px!important;padding:3px 4px!important;min-width:0!important;flex:1 1 0!important;text-align:center;white-space:nowrap!important;overflow:hidden;text-overflow:ellipsis}
 @media(min-width:901px){html.no3d .wrap{align-items:stretch!important;height:calc(100vh - 170px);min-height:520px}
