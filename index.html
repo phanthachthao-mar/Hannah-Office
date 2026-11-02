@@ -437,6 +437,9 @@ html.no3d .stc .sr b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;f
 html.no3d .stc .sr i{margin-top:5px;width:7px;height:7px}
 html.no3d .stc[hidden]{display:none!important}
 html.no3d .offs{position:static!important;transform:none!important;left:auto!important;right:auto!important;bottom:auto!important;width:auto!important;max-width:none!important;margin:0 0 8px;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;justify-content:center;flex-wrap:wrap!important;overflow:visible!important}
+
+/* Điện thoại: khung chat không được tràn ngang, bong bóng chữ dài thì xuống dòng */
+@media(max-width:900px){#chat{min-width:0;max-width:100%}#chat .cmsgs{min-width:0;overflow-x:hidden}#chat .cb{min-width:0;max-width:86%;overflow-wrap:anywhere}}
 </style>
 </head>
 <body>
